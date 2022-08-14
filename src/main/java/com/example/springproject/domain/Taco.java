@@ -16,9 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -38,7 +38,7 @@ public class Taco {
     @Size(min=1, message="You must choose at least 1 ingredient")
     @ManyToMany
     @ToString.Exclude
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private Set<Ingredient> ingredients = new HashSet<>();
     public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
     }

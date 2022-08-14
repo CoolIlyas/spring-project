@@ -9,14 +9,17 @@ import com.example.springproject.repositories.TacoRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Configuration
 public class InitConfigs {
 
     @Bean
+    @Profile("init")
     public ApplicationRunner initIngredients(IngredientRepository ingRepo,
                                              OrderRepository ordRepo,
                                              TacoRepository tacoRepo) {
@@ -33,8 +36,8 @@ public class InitConfigs {
             Ingredient ing10 = new Ingredient("TMTO", "Diced Tomatoes", Ingredient.Type.VEGGIES);
             ingRepo.saveAll(List.of(ing1,ing2,ing3,ing4,ing5,ing6,ing7,ing8,ing9,ing10));
 
-            Taco taco1 = Taco.builder().id(1L).name("Taco 1").createdAt(LocalDate.now()).ingredients(List.of(ing1,ing8,ing5)).build();
-            Taco taco2 = Taco.builder().id(2L).name("Taco 2").createdAt(LocalDate.now().minusDays(5)).ingredients(List.of(ing2,ing4,ing9)).build();
+            Taco taco1 = Taco.builder().id(1L).name("Taco 1").createdAt(LocalDate.now()).ingredients(Set.of(ing1,ing8,ing5)).build();
+            Taco taco2 = Taco.builder().id(2L).name("Taco 2").createdAt(LocalDate.now().minusDays(5)).ingredients(Set.of(ing2,ing4,ing9)).build();
             tacoRepo.saveAll(List.of(taco1,taco2));
 
 

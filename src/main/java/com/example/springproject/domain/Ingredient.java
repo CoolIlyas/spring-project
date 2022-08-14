@@ -9,6 +9,8 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Getter
@@ -20,7 +22,10 @@ import java.util.Objects;
 public class Ingredient {
     @Id
     private String id;
+    @Size(min=3, message="Name is too short")
+    @NotNull
     private String name;
+    @NotNull
     private Type type;
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
