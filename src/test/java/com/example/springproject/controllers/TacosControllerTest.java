@@ -53,8 +53,8 @@ public class TacosControllerTest {
         Ingredient ing10 = new Ingredient("TMTO", "Diced Tomatoes", Ingredient.Type.VEGGIES);
         ingredientRepository.saveAll(List.of(ing1,ing2,ing3,ing4,ing5,ing6,ing7,ing8,ing9,ing10));
 
-        Taco taco1 = Taco.builder().id(1L).name("Taco 1").createdAt(LocalDate.now()).ingredients(Set.of(ing1,ing8,ing5)).build();
-        Taco taco2 = Taco.builder().id(2L).name("Taco 2").createdAt(LocalDate.now().minusDays(5)).ingredients(Set.of(ing2,ing4,ing9)).build();
+        Taco taco1 = Taco.builder().name("Taco 1").createdAt(LocalDate.now()).ingredients(Set.of(ing1,ing8,ing5)).build();
+        Taco taco2 = Taco.builder().name("Taco 2").createdAt(LocalDate.now().minusDays(5)).ingredients(Set.of(ing2,ing4,ing9)).build();
         tacoRepository.saveAll(List.of(taco1,taco2));
     }
 
