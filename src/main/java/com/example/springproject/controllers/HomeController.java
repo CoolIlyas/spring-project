@@ -8,4 +8,14 @@ public class HomeController {
     public String home() {
         return "home";
     }
+
+    @GetMapping("/protected")
+    public String protectedPage() {
+        return "protected";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
